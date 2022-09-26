@@ -1,0 +1,27 @@
+[[package]]
+name = "pyaudio"
+version = "0.2.12"
+description = "Cross-platform audio I/O with PortAudio"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+test = ["numpy"]
+
+[[package]]
+name = "wave"
+version = "0.0.2"
+description = "Whole Architecture Verification"
+category = "main"
+optional = false
+python-versions = "*"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "5ac3844e99e24ab6a4fc1fa101b4688addd3098c9033d7e8337ca279029d6e3a"
+
+[metadata.files]
+pyaudio = []
+wave = []
