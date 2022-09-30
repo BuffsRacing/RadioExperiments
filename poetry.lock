@@ -1,4 +1,12 @@
 [[package]]
+name = "azure-cognitiveservices-speech"
+version = "1.23.0"
+description = "\"Microsoft Cognitive Services Speech SDK\""
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pyaudio"
 version = "0.2.12"
 description = "Cross-platform audio I/O with PortAudio"
@@ -10,6 +18,17 @@ python-versions = "*"
 test = ["numpy"]
 
 [[package]]
+name = "python-dotenv"
+version = "0.21.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "wave"
 version = "0.0.2"
 description = "Whole Architecture Verification"
@@ -19,9 +38,11 @@ python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.8"
-content-hash = "5ac3844e99e24ab6a4fc1fa101b4688addd3098c9033d7e8337ca279029d6e3a"
+python-versions = ">=3.8,<3.11"
+content-hash = "2b03e19b7f90cac5edd85d5a38825a17b392dc7efe4c6d9b11faaa5274559b95"
 
 [metadata.files]
+azure-cognitiveservices-speech = []
 pyaudio = []
+python-dotenv = []
 wave = []
