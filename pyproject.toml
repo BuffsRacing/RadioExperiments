@@ -10,8 +10,11 @@ PyAudio = "^0.2.12"
 Wave = "^0.0.2"
 azure-cognitiveservices-speech = "^1.23.0"
 python-dotenv = "^0.21.0"
+Flask = "^2.2.2"
+Turbo-Flask = "^0.8.1"
 
 [tool.poetry.dev-dependencies]
+gunicorn = "^20.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
