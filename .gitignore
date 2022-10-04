@@ -3,3 +3,5 @@ recordings/
 *.DS_Store
 *.env
 __pycache__/
+transcripts.pkl
+static/*.wav
