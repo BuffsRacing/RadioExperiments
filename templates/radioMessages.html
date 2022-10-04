@@ -1,0 +1,16 @@
+<div id="todays_files" class="todays_files">
+    
+    {% for file in todays_files %}
+    <div class="card mb-3">
+        <audio class="radio_messages" controls>
+            <source src="{{ url_for('static', filename=file['file']) }}">
+        </audio>
+        <div class="card-body">
+          <h5 class="card-title">{{file['transcript']}}</h5>
+          <p class="card-text"><small class="text-muted">As of {{file['dt_obj']}}</small></p>
+        </div>
+      </div>
+    
+    
+    {% endfor %}
+  </div>

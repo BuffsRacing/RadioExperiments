@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<h1>Radio Messages</h1>
+<button onclick="(async () => {   
+	await navigator.mediaDevices.getUserMedia({audio: true, video: false});   
+	let devices = await navigator.mediaDevices.enumerateDevices();   
+	console.log(devices); 
+	var selectMenu = document.getElementById('outputDevice')
+	selectMenu.innerHTML = '';
+	for (var i = 0; i < devices.length; i++) {
+		if (devices[i].kind == 'audiooutput') {
+			var option = document.createElement('option')
+			option.text = devices[i].label;
+			option.value = devices[i].deviceId;
+			selectMenu.add(option);
+		}
+	}
+  })();">Get device media access</button>
+<select id="outputDevice" onchange="setAllAudioOutput()">
+  <option value="default">Give Device Media Access First</option>
+  </select>
+  
+{% include "radioMessages.html" %}
+</div>
+
+<script>
+	function setAllAudioOutput () {
+		var selectMenu = document.getElementById('outputDevice')
+		var deviceId = selectMenu.options[selectMenu.selectedIndex].value;
+		console.log(deviceId);
+		var audios = document.getElementsByTagName('audio');
+		for (var i = 0; i < audios.length; i++) {
+			audios[i].setSinkId(deviceId);
+		}
+	}
+</script>
+{% endblock %}

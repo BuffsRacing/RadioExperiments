@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello...??</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.1/dist/morph/bootstrap.min.css" />
+    <style>
+      .todays_files {
+        border: 1px solid;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+      }
+      audio {
+        width: 100%;
+      }
+    </style>
+    <script type="module">
+        import * as Turbo from 'https://cdn.skypack.dev/pin/@hotwired/turbo@v7.0.0-9XNv1By6uiqRlBzQLO2d/mode=imports,min/optimized/@hotwired/turbo.js';
+        Turbo.connectStreamSource(new WebSocket(`ws${location.protocol.substring(4)}//${location.host}/turbo-stream`));
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Radio...???</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>    
+    {% block content %}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
