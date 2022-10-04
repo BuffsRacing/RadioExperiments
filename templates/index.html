@@ -3,6 +3,9 @@
 {% block content %}
 <div class="container">
 <h1>Radio Messages</h1>
+<div class="container">
+	<div class="row">
+		<div class="col">
 <button onclick="(async () => {   
 	await navigator.mediaDevices.getUserMedia({audio: true, video: false});   
 	let devices = await navigator.mediaDevices.enumerateDevices();   
@@ -17,10 +20,14 @@
 			selectMenu.add(option);
 		}
 	}
-  })();">Get device media access</button>
-<select id="outputDevice" onchange="setAllAudioOutput()">
+  })();" class="btn btn-primary">Get device media access</button>
+  </div></div>
+  <div class="row mt-3 mb-3"><div class="col">
+<select id="outputDevice" onchange="setAllAudioOutput()" class="form-select">
   <option value="default">Give Device Media Access First</option>
   </select>
+  </div>	</div>
+</div>
   
 {% include "radioMessages.html" %}
 </div>
