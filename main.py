@@ -17,15 +17,21 @@ speech_key = os.getenv("AZURE_SPEECH_KEY")
 speech_region = os.getenv("AZURE_SPEECH_REGION")
 usb_audio_index = os.getenv("USB_AUDIO_INDEX")
 transcribe = os.getenv("ENABLE_TRANSCRIPTION")
+ryan_mckiel_mode = os.getenv("ENABLE_BANG_MILK_MODE")
 try:
-    transcribe = bool(transcribe)
+    transcribe = bool(int(transcribe))
 except:
     transcribe = False
 record_messages = os.getenv("ENABLE_RECORDING")
 try:
-    record_messages = bool(record_messages)
+    record_messages = bool(int(record_messages))
 except:
     record_messages = False
+try:
+    ryan_mckiel_mode = bool(int(ryan_mckiel_mode))
+except:
+    ryan_mckiel_mode = False
+print(f"Ryan McKiel Mode: {ryan_mckiel_mode}")
 
 app = Flask(__name__)
 #app.config["SERVER_NAME"] = "localhost:5000"
@@ -60,7 +66,7 @@ def inject_messages():
             )
         if todays_files != []:
             todays_files = sorted(todays_files, key=lambda k: k['dt_obj'], reverse=True) # Sort by date
-    return {'todays_files': todays_files}
+    return {'todays_files': todays_files, "party_mode": ryan_mckiel_mode}
 
 
 def update_messages():

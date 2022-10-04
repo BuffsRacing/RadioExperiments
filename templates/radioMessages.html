@@ -1,7 +1,7 @@
 <div id="todays_files" class="todays_files border border rounded">
     
     {% for file in todays_files %}
-    <div class="card mb-3">
+    <div class="card mb-3 zamn">
         <audio class="radio_messages" controls>
             <source src="{{ url_for('static', filename=file['file']) }}">
         </audio>
