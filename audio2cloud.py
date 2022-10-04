@@ -126,6 +126,7 @@ def from_file(audio_fname, speech_key, speech_region):
 
     result = speech_recognizer.recognize_once_async().get()
     print(f"Radio Transcript: {result.text}")
+    return result.text
 
 def natural_fname():
     return time.strftime("%Y%m%d_%H%M%S.wav", time.localtime())
