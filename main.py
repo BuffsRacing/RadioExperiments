@@ -28,7 +28,7 @@ except:
     record_messages = False
 
 app = Flask(__name__)
-app.config["SERVER_NAME"] = "localhost:5000"
+#app.config["SERVER_NAME"] = "localhost:5000"
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 turbo = Turbo(app)
 
@@ -69,7 +69,11 @@ def update_messages():
             audio_fname = f"static/BuffsRadio_{natural_fname()}"
             if record_messages:
                 print("ready to record message...")
-                record_to_file(audio_fname, usb_audio_index)
+                try:
+                    record_to_file(audio_fname, usb_audio_index)
+                except ValueError:
+                    raise Exception("USB Audio device not found. Please check your USB Audio device index.")
+                    exit(1)
                 print("done recording message...")
             with open("transcripts.pkl", "rb") as f:
                 transcriptions = pickle.load(f)
