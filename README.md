@@ -14,3 +14,17 @@
 * Soundboard with pre-recorded messages to transmit
 * Backup WAV files to a cloud storage service
 * Public view with limited functionality
+
+## Bundling the Web Server
+
+Windows:
+
+```bash
+pyinstaller -w -F --add-data "templates;templates" --add-data "static;static" main.py
+```
+
+*nix:
+
+```bash
+pyinstaller -w -F --add-data "templates:templates" --add-data "static:static" main.py
+```

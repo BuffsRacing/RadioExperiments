@@ -12,6 +12,7 @@ azure-cognitiveservices-speech = "^1.23.0"
 python-dotenv = "^0.21.0"
 Flask = "^2.2.2"
 Turbo-Flask = "^0.8.1"
+pyinstaller = "^5.5"
 
 [tool.poetry.dev-dependencies]
 gunicorn = "^20.1.0"
