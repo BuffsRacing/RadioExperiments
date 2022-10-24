@@ -33,6 +33,9 @@ except:
     ryan_mckiel_mode = False
 print(f"Ryan McKiel Mode: {ryan_mckiel_mode}")
 print(f"Listening on {usb_audio_index}")
+print(f"Transcription Enabled: {transcribe}")
+print(f"Recording Enabled: {record_messages}")
+
 
 app = Flask(__name__)
 app.config["SERVER_NAME"] = "localhost:5000"
