@@ -31,6 +31,10 @@ try:
     ryan_mckiel_mode = bool(int(ryan_mckiel_mode))
 except:
     ryan_mckiel_mode = False
+try:
+    usb_audio_index = int(usb_audio_index)
+except:
+    usb_audio_index = 2
 print(f"Ryan McKiel Mode: {ryan_mckiel_mode}")
 print(f"Listening on {usb_audio_index}")
 print(f"Transcription Enabled: {transcribe}")
