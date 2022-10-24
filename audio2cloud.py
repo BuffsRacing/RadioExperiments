@@ -3,7 +3,14 @@ from array import array
 from struct import pack
 from dotenv import load_dotenv
 
-import azure.cognitiveservices.speech as speechsdk
+disable_azure = False
+
+try:
+    import azure.cognitiveservices.speech as speechsdk
+except ModuleNotFoundError:
+    print("Azure Speech SDK not installed. Please install it with pip install azure-cognitiveservices-speech")
+    disable_azure = True
+    
 import os
 import pyaudio
 import time
@@ -120,6 +127,8 @@ def record_to_file(path, usb_audio_index):
     wf.close()
 
 def from_file(audio_fname, speech_key, speech_region):
+    if disable_azure:
+        return "Azure Speech SDK not installed."
     speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=speech_region)
     audio_input = speechsdk.AudioConfig(filename=audio_fname)
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
