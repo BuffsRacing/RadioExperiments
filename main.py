@@ -46,9 +46,14 @@ def index():
 def inject_messages():
     fnames = os.listdir("static/")
     todays_files = []
-    with open("transcripts.pkl", "rb") as f:
-        transcriptions = pickle.load(f)
-        f.close()
+    try:
+        with open("transcripts.pkl", "rb") as f:
+            transcriptions = pickle.load(f)
+            f.close()
+    except FileNotFoundError:
+        # Create file if it doesn't exist
+        with open("transcripts.pkl", "wb") as f:
+            pickle.dump({}, f)
     for fname in fnames:
         if "BuffsRadio" not in fname:
             continue
