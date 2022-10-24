@@ -32,9 +32,10 @@ try:
 except:
     ryan_mckiel_mode = False
 print(f"Ryan McKiel Mode: {ryan_mckiel_mode}")
+print(f"Listening on {usb_audio_index}")
 
 app = Flask(__name__)
-#app.config["SERVER_NAME"] = "localhost:5000"
+app.config["SERVER_NAME"] = "localhost:5000"
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 turbo = Turbo(app)
 
@@ -84,11 +85,15 @@ def update_messages():
                     record_to_file(audio_fname, usb_audio_index)
                 except ValueError:
                     raise Exception("USB Audio device not found. Please check your USB Audio device index.")
-                    exit(1)
                 print("done recording message...")
-            with open("transcripts.pkl", "rb") as f:
-                transcriptions = pickle.load(f)
-                f.close()
+            try:
+                with open("transcripts.pkl", "rb") as f:
+                    transcriptions = pickle.load(f)
+                    f.close()
+            except FileNotFoundError:
+                # Create file if it doesn't exist
+                with open("transcripts.pkl", "wb") as f:
+                    pickle.dump({}, f)
             if transcriptions is None:
                 transcriptions = {}
             if transcribe:
@@ -98,7 +103,6 @@ def update_messages():
                 pickle.dump(transcriptions, f)
                 f.close()
             turbo.push(turbo.replace(render_template('radioMessages.html'), 'todays_files'))
-            time.sleep(10000)
 
 @app.before_first_request
 def before_first_request():
