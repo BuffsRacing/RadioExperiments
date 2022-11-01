@@ -5,7 +5,7 @@ description = "Hello??? Empty!!!!!"
 authors = ["navanchauhan <buffsracing@navan.email>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
+python = ">=3.8,<3.12"
 PyAudio = "^0.2.12"
 Wave = "^0.0.2"
 azure-cognitiveservices-speech = "^1.23.0"
