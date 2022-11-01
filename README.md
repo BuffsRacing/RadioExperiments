@@ -11,6 +11,7 @@ git clone https://github.com/buffsracing/radioexperiments
 poetry install
 poetry shell
 cp .env.example .env
+py getAllDevices.py # Edit .env based on the output
 py -m flask --app main run
 ```
 
