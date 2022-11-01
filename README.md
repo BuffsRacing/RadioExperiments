@@ -2,6 +2,20 @@
 
 ![RadioExperiments Web Server](docs/assets/messages.png)
 
+## Installation
+
+Make sure you have [Poetry](https://python-poetry.org/) installed.
+
+```bash
+git clone https://github.com/buffsracing/radioexperiments
+poetry install
+poetry shell
+cp .env.example .env
+py -m flask --app main run
+```
+
+The web server will be available at [http://localhost:5000](http://localhost:5000).
+
 ## Current Features
 
 * Record and playback radio messages
